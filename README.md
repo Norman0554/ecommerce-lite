@@ -1,6 +1,6 @@
-# DevOps Exam Node.js App
+# Ecommerce Lite Node.js App
 
-Minimal Node.js service with `/health` and Prometheus `/metrics` endpoints, plus Docker, Helm, Argo CD, Grafana, and GitHub Actions examples.
+Simple ecommerce demo with a landing page, in-memory catalog, Prometheus `/metrics`, plus Docker, Helm, Argo CD, Grafana, and GitHub Actions examples.
 
 ## Local run
 
@@ -9,21 +9,22 @@ npm install
 npm start
 curl http://localhost:3000/health
 curl http://localhost:3000/metrics
+open http://localhost:3000
 ```
 
 ## Docker
 
 ```bash
-docker build -t devops-exam-app:local .
-docker run -p 3000:3000 devops-exam-app:local
+docker build -t ecommerce-lite:local .
+docker run -p 3000:3000 ecommerce-lite:local
 ```
 
 ## Helm
 
-Update the image in `helm/devops-exam/values.yaml`, then:
+Update the image in `helm/ecommerce-lite/values.yaml`, then:
 
 ```bash
-helm install devops-exam helm/devops-exam --namespace devops-exam --create-namespace
+helm install ecommerce-lite helm/ecommerce-lite --namespace ecommerce-lite --create-namespace
 ```
 
 ## Argo CD

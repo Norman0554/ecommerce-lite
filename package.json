@@ -1,7 +1,7 @@
 {
-  "name": "devops-exam-app",
+  "name": "ecommerce-lite",
   "version": "1.0.0",
-  "description": "Minimal Node.js app for DevOps exam",
+  "description": "Simple ecommerce demo with Prometheus metrics",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
