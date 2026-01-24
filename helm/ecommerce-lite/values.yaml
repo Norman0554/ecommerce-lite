@@ -20,6 +20,7 @@ serviceMonitor:
   enabled: true
   interval: 30s
   scrapeTimeout: 10s
+  releaseLabel: kube-prometheus-stack
 
 metrics:
   path: /metrics

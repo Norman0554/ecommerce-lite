@@ -5,6 +5,7 @@ metadata:
   name: {{ include "ecommerce-lite.fullname" . }}
   labels:
     app: {{ include "ecommerce-lite.name" . }}
+    release: {{ .Values.serviceMonitor.releaseLabel | default "kube-prometheus-stack" }}
 spec:
   selector:
     matchLabels:
