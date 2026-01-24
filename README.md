@@ -56,6 +56,20 @@ List recent orders:
 curl http://localhost:3000/api/orders
 ```
 
+### Kubernetes persistence
+
+SQLite data can be persisted via a PVC. Configure in `helm/ecommerce-lite/values.yaml`:
+
+```yaml
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  storageClass: ""
+  mountPath: /app/data
+  existingClaim: ""
+```
+
 ## Argo CD
 
 Edit `deploy/argocd-application.yaml` with your repo URL and `path: helm/ecommerce-lite`, then:
@@ -97,4 +111,10 @@ Application logs are JSON to stdout (structured logs). Examples:
 ```bash
 docker logs <container-id>
 kubectl logs -n devops-exam -l app=ecommerce-lite --tail=100
+```
+
+To view logs in Grafana, open Explore and use the Loki datasource:
+
+```
+{namespace="devops-exam", app="ecommerce-lite"}
 ```

@@ -18,6 +18,12 @@ spec:
       imagePullSecrets:
 {{ toYaml .Values.imagePullSecrets | indent 8 }}
       {{- end }}
+      {{- if .Values.persistence.enabled }}
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ default (printf "%s-data" (include "ecommerce-lite.fullname" .)) .Values.persistence.existingClaim }}
+      {{- end }}
       containers:
         - name: app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -30,6 +36,15 @@ spec:
               value: "{{ .Values.service.targetPort }}"
             - name: APP_NAME
               value: '{{ include "ecommerce-lite.name" . }}'
+            {{- if .Values.persistence.enabled }}
+            - name: DB_PATH
+              value: "{{ .Values.persistence.mountPath }}/app.db"
+            {{- end }}
+          {{- if .Values.persistence.enabled }}
+          volumeMounts:
+            - name: data
+              mountPath: {{ .Values.persistence.mountPath }}
+          {{- end }}
           readinessProbe:
             httpGet:
               path: /health
