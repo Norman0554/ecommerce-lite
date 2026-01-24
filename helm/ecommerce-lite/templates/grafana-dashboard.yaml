@@ -28,7 +28,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 32,
+      "id": 18,
       "links": [],
       "panels": [
         {
@@ -687,8 +687,12 @@ data:
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
           "gridPos": {
-            "h": 7,
+            "h": 14,
             "w": 24,
             "x": 0,
             "y": 19
@@ -696,16 +700,20 @@ data:
           "id": 10,
           "options": {
             "dedupStrategy": "none",
+            "enableInfiniteScrolling": false,
             "enableLogDetails": true,
-            "prettifyLogMessage": true,
-            "showLabels": false,
-            "showTime": true,
-            "wrapLogMessage": true
+            "showControls": false,
+            "showTime": false,
+            "sortOrder": "Descending",
+            "wrapLogMessage": false
           },
           "pluginVersion": "12.3.1",
           "targets": [
             {
+              "direction": "backward",
+              "editorMode": "code",
               "expr": "{namespace=\"devops-exam\", app=\"ecommerce-lite\"}",
+              "queryType": "range",
               "refId": "A"
             }
           ],
@@ -721,7 +729,6 @@ data:
         "list": [
           {
             "current": {
-              "selected": false,
               "text": "Loki",
               "value": "Loki"
             },
@@ -742,6 +749,6 @@ data:
       "timezone": "browser",
       "title": "Ecommerce Lite",
       "uid": "9012d682-6e10-4908-b026-bf5ac76d627c",
-      "version": 1
+      "version": 15
     }
 {{- end }}
