@@ -28,7 +28,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 18,
+      "id": 2,
       "links": [],
       "panels": [
         {
@@ -692,7 +692,7 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 14,
+            "h": 15,
             "w": 24,
             "x": 0,
             "y": 19
@@ -749,6 +749,6 @@ data:
       "timezone": "browser",
       "title": "Ecommerce Lite",
       "uid": "9012d682-6e10-4908-b026-bf5ac76d627c",
-      "version": 15
+      "version": 27
     }
 {{- end }}
